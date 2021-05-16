@@ -9,7 +9,7 @@ const initialState = {
   loading: false,
   cart: data,
   total: 0,
-  amount: 0,
+  amount: 4,
 };
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
