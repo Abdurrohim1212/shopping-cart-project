@@ -1,4 +1,14 @@
 const reducer = (state, action) => {
-  return state;
+  const { type } = action;
+  switch (type) {
+    case "CLEAR_CART":
+      return {
+        ...state,
+        cart: [],
+      };
+
+    default:
+      return state;
+  }
 };
 export default reducer;
