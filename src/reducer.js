@@ -28,12 +28,14 @@ const reducer = (state, action) => {
     case "DECREASE":
       return {
         ...state,
-        cart: cart.map(item => {
-          if (item.id === payload) {
-            return { ...item, amount: item.amount - 1 };
-          }
-          return item;
-        }),
+        cart: cart
+          .map(item => {
+            if (item.id === payload) {
+              return { ...item, amount: item.amount - 1 };
+            }
+            return item;
+          })
+          .filter(item => item.amount !== 0),
       };
     default:
       return state;
