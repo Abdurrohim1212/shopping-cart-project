@@ -1,6 +1,6 @@
 const reducer = (state, action) => {
   const { type, payload } = action;
-
+  const { cart } = state;
   switch (type) {
     case "CLEAR_CART":
       return {
@@ -10,7 +10,7 @@ const reducer = (state, action) => {
     case "REMOVE":
       return {
         ...state,
-        cart: state.cart.filter(cartItem => {
+        cart: cart.filter(cartItem => {
           return cartItem.id !== payload;
         }),
       };
