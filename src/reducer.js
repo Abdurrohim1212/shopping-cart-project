@@ -1,6 +1,17 @@
 const reducer = (state, action) => {
   const { type, payload } = action;
   const { cart } = state;
+  const { total, amount } = cart.reduce(
+    (cartTotal, cartItem) => {
+      const { price, amount } = cartItem;
+      console.log(price, amount);
+      return cartTotal;
+    },
+    {
+      total: 0,
+      amount: 0,
+    }
+  );
 
   switch (type) {
     case "CLEAR_CART":
@@ -37,6 +48,8 @@ const reducer = (state, action) => {
           })
           .filter(item => item.amount !== 0),
       };
+    case "GET_TOTALS":
+      return { ...state, total, amount };
     default:
       return state;
   }
