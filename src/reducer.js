@@ -52,6 +52,10 @@ const reducer = (state, action) => {
       };
     case "GET_TOTALS":
       return { ...state, total, amount };
+    case "LOADING":
+      return { ...state, loading: true };
+    case "DISPLAY_ITEMS":
+      return { ...state, loading: false, cart: payload };
     default:
       return state;
   }
